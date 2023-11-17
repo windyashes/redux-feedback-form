@@ -24,7 +24,7 @@ npm run client
 Create a multi-part form that allows users to leave feedback for today. 
 There will be 4 views for the form parts.
 
-The parts:
+The parts, in order:
 - How are you feeling today?
 ![feeling](wireframes/feeling.png)
 - How well are you understanding the content?
@@ -34,17 +34,15 @@ The parts:
 - Any comments you want to leave?
 ![comments](wireframes/comments.png)
 
-While there is no nav bar, each part of the form should be at its own route. Clicking next should move the user to the appropriate step in the process.
+While there is no nav bar, each part of the form should be at its own route. 
 
-### Input Validation
+Clicking next should move the user to the appropriate step in the process.
 
-Each step should only allow the user to advance to the next step if a score was provided. Be sure to tell the user in some way that a value must be provided.
-
-The `Comments` step does not need to be validated, an empty value is okay.
+The button on each page that moves you to the next page needs `data-testid="next"`
 
 ## THE REVIEW COMPONENT
 
-The last step of the process will allow the user to review their feedback. Users are not able to change their input on this step or go back for Base Mode. 
+After collecting the 4 feedback parts, the app will allow the user to review their feedback. Users are not able to change their input on this step or go back for Base Mode. 
 
 ![comments](wireframes/review-active.png)
 
@@ -52,7 +50,9 @@ The last step of the process will allow the user to review their feedback. Users
 
 The `Review` step needs to have a submit button which will be clicked on to actually submit the completed feedback to the server.
 
-When the submit button is clicked, save the submission in the database. The user should see a submission success page. They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
+When the submit button is clicked, save the submission in the database. 
+
+The user then should see a submission success page. They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
 
 ![understanding](wireframes/page-five.png)
 
@@ -60,6 +60,14 @@ When the submit button is clicked, save the submission in the database. The user
 ## STRETCH GOALS
 
 > NOTE: These stretch goals are intended to be completed in order.
+
+### Input Validation
+
+Each step should only allow the user to advance to the next step if a score was provided. Be sure to tell the user in some way that a value must be provided.
+
+The `Comments` step does not need to be validated, an empty value is okay.
+
+>> This will likely break the tests!
 
 ### UPDATE SCORES
 
