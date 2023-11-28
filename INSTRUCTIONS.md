@@ -38,11 +38,11 @@ While there is no nav bar, each part of the form should be at its own route.
 
 Clicking next should move the user to the appropriate step in the process.
 
-The button on each page that moves you to the next page needs `data-testid="next"`
+
 
 ## THE REVIEW COMPONENT
 
-After collecting the 4 feedback parts, the app will allow the user to review their feedback. Users are not able to change their input on this step or go back for Base Mode. 
+After collecting the 4 feedback parts, the app will allow the user to review their feedback. They should be able to see the values they added earlier. Users are not able to change their input on this step or go back for Base Mode. 
 
 ![comments](wireframes/review-active.png)
 
@@ -57,6 +57,12 @@ The user then should see a submission success page. They can then click the butt
 ![understanding](wireframes/page-five.png)
 
 
+## Testing Requirements
+The button on each page that moves you to the next page needs `data-testid="next"` on every page. This includes the submit button!
+
+The input used to collect the scores/feedback on each page needs a `data-testid="input"`
+
+
 ## STRETCH GOALS
 
 > NOTE: These stretch goals are intended to be completed in order.
@@ -67,7 +73,7 @@ Each step should only allow the user to advance to the next step if a score was 
 
 The `Comments` step does not need to be validated, an empty value is okay.
 
->> This will likely break the tests!
+>> This will likely break some of the tests! You need to fix them too.
 
 ### UPDATE SCORES
 
