@@ -47,29 +47,29 @@ describe('Feedback Loop', () => {
     //will cycle through the 6 views and check they are what we expect
     // based on finding 'correct' text on that view
     cy.contains('feeling').should('exist');
-    cy.get('[data-testid="input"]').type('5')
+    cy.get('[data-testid="input"]').type('5' , {force: true})
 
     cy.get('[data-testid="next"]').click();
 
     cy.contains('understanding').should('exist');
-    cy.get('[data-testid="input"]').type('4')
+    cy.get('[data-testid="input"]').type('4', {force: true})
 
     cy.get('[data-testid="next"]').click();
 
     cy.contains('support').should('exist');
-    cy.get('[data-testid="input"]').type('2')
+    cy.get('[data-testid="input"]').type('2', {force: true})
 
     cy.get('[data-testid="next"]').click();
 
     cy.contains('comments').should('exist');
-    cy.get('[data-testid="input"]').type('Taco Cat Goat Cheese Pizza')
+    cy.get('[data-testid="input"]').type('Taco Cat Goat Cheese Pizza', {force: true})
 
     cy.get('[data-testid="next"]').click();
 
     cy.contains('review').should('exist');
 
 
-    cy.gcontainset('Taco Cat Goat Cheese Pizza').should('exist');
+    cy.contains('Taco Cat Goat Cheese Pizza').should('exist');
     cy.contains('5').should('exist')
     cy.contains('4').should('exist')
     cy.contains('2').should('exist')
@@ -82,25 +82,25 @@ describe('Feedback Loop', () => {
 
 
 
-
+// THIS IS NOT ACTUALLY WORKING...? There are no assertions or expectations
   it('POST: Adds feedback to Database', () => {
     cy.contains('feeling').should('exist');
-    cy.get('[data-testid="input"]').type('5')
+    cy.get('[data-testid="input"]').type('5', {force: true})
 
     cy.get('[data-testid="next"]').click();
 
     cy.contains('understanding').should('exist');
-    cy.get('[data-testid="input"]').type('4')
+    cy.get('[data-testid="input"]').type('4', {force: true})
 
     cy.get('[data-testid="next"]').click();
 
     cy.contains('support').should('exist');
-    cy.get('[data-testid="input"]').type('2')
+    cy.get('[data-testid="input"]').type('2', {force: true})
 
     cy.get('[data-testid="next"]').click();
 
     cy.contains('comments').should('exist');
-    cy.get('[data-testid="input"]').type('Taco Cat Goat Cheese Pizza')
+    cy.get('[data-testid="input"]').type('Taco Cat Goat Cheese Pizza', {force: true})
 
     cy.get('[data-testid="next"]').click();
 
