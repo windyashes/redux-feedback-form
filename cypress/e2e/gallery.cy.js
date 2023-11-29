@@ -8,13 +8,12 @@ describe('Feedback Loop', () => {
     await cy.visit('/')
   })
 
-    //This test is to ensure they have a GET route that returns data
-    it('GET: Able to retrieve Data', async () => {
-      cy.request('GET', '/feedback').then(response => {
-       expect(response.body)
-      });
-   
-     })
+  //This test is to ensure they have a GET route that returns data
+  it('GET: Able to retrieve Data', () => {
+    cy.request('GET', 'feedback').its('body').should('include', {comments : 'Blerg.'});
+  });
+
+
 
   it('UI: Correct order of views', () => {
     //will cycle through the 6 views and check they are what we expect
@@ -43,13 +42,13 @@ describe('Feedback Loop', () => {
 
   it('UI: Data Collection Persists across views, sends Collected Data', async () => {
     cy.intercept('POST', '/*').as('postRequest')
-    
-    
+
+
     //will cycle through the 6 views and check they are what we expect
     // based on finding 'correct' text on that view
     cy.get('feeling').should('exist');
     cy.get('[data-testid="input"]').type('5')
-    
+
     cy.get('[data-testid="next"]').click();
 
     cy.get('understanding').should('exist');
@@ -77,9 +76,8 @@ describe('Feedback Loop', () => {
     cy.get('3').should('not.exist')
     cy.get('1').should('not.exist')
 
-    let response = await cy.wait('@postRequest')
-    response.its('request.body').should('contain', '')
-  
+    cy.wait('@postRequest').its('body').should('contain', '')
+
   })
 
 
@@ -88,7 +86,7 @@ describe('Feedback Loop', () => {
   it('POST: Adds feedback to Database', () => {
     cy.get('feeling').should('exist');
     cy.get('[data-testid="input"]').type('5')
-    
+
     cy.get('[data-testid="next"]').click();
 
     cy.get('understanding').should('exist');
