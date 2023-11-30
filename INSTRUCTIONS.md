@@ -62,7 +62,9 @@ The button on each page that moves you to the next page needs `data-testid="next
 
 The input used to collect the scores/feedback on each page needs a `data-testid="input"`
 
-Each step of the process needs to have the appropriate label. So if you are on the feeling step, the text of `feeling` must be on the page someplace. Same for all views: feeling, understanding, support, comments, review, thank you
+The tests expect the app to load at the feeling step. This likely means your client side `/` route is the feeling step. Having a `Welcome` page into the mix will break the tests.
+
+Each step of the process needs to have the appropriate label. So if you are on the feeling step, the text of `feeling` must be on the page someplace. Same for all views: feeling, understanding, support, comments, review, thank you. This helps the tests know what step of the form we are on.
 
 
 ## STRETCH GOALS
@@ -93,4 +95,4 @@ Improve the styling of the app using Material-UI. This might include cards, snac
 - Add the ability to flag an existing feedback entry for further review on the /admin view.
 
 ### DEPLOY
-Deploy your project to Heroku. You'll need to read the special instructions for building and deploying with React. 
+Deploy your project to Heroku. 
