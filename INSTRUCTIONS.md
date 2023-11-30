@@ -44,7 +44,7 @@ Clicking next should move the user to the appropriate step in the process.
 
 After collecting the 4 feedback parts, the app will allow the user to review their feedback. They should be able to see the values they added earlier. Users are not able to change their input on this step or go back for Base Mode. 
 
-![comments](wireframes/review-active.png)
+![review](wireframes/review-active.png)
 
 ## SUBMIT THE FEEDBACK
 
@@ -61,6 +61,8 @@ The user then should see a submission success page. They can then click the butt
 The button on each page that moves you to the next page needs `data-testid="next"` on every page. This includes the submit button!
 
 The input used to collect the scores/feedback on each page needs a `data-testid="input"`
+
+Each step of the process needs to have the appropriate label. So if you are on the feeling step, the text of `feeling` must be on the page someplace. Same for all views: feeling, understanding, support, comments, review, thank you
 
 
 ## STRETCH GOALS
