@@ -1,6 +1,6 @@
 const { defineConfig } = require("cypress");
 const { resetTestDatabase, executeSqlFile } = require('./cypress/__utils__/db-setup.js')
-
+const fs = require('fs')
 
 module.exports = defineConfig({
   e2e: {
@@ -34,8 +34,13 @@ module.exports = defineConfig({
         //   // ... more properties...
         //   }
         // }
+        // results will be undefined in interactive mode
         if (results) {
-          // results will be undefined in interactive mode
+          // Deletes the build folder that the test run
+          // generates. Only works if we supply a callback
+          // function:
+          fs.rmdir('build', {recursive: true}, () => {})
+        
           console.log(
             results.totalPassed,
             'out of',
