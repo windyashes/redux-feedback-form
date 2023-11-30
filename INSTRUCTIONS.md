@@ -24,7 +24,7 @@ npm run client
 Create a multi-part form that allows users to leave feedback for today. 
 There will be 4 views for the form parts.
 
-The parts:
+The parts, in order:
 - How are you feeling today?
 ![feeling](wireframes/feeling.png)
 - How well are you understanding the content?
@@ -34,7 +34,42 @@ The parts:
 - Any comments you want to leave?
 ![comments](wireframes/comments.png)
 
-While there is no nav bar, each part of the form should be at its own route. Clicking next should move the user to the appropriate step in the process.
+While there is no nav bar, each part of the form should be at its own route. 
+
+Clicking next should move the user to the appropriate step in the process.
+
+
+
+## THE REVIEW COMPONENT
+
+After collecting the 4 feedback parts, the app will allow the user to review their feedback. They should be able to see the values they added earlier. Users are not able to change their input on this step or go back for Base Mode. 
+
+![review](wireframes/review-active.png)
+
+## SUBMIT THE FEEDBACK
+
+The `Review` step needs to have a submit button which will be clicked on to actually submit the completed feedback to the server.
+
+When the submit button is clicked, save the submission in the database. 
+
+The user then should see a submission success page. They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
+
+![understanding](wireframes/page-five.png)
+
+
+## Testing Requirements
+The button on each page that moves you to the next page needs `data-testid="next"` on every page. This includes the submit button!
+
+The input used to collect the scores/feedback on each page needs a `data-testid="input"`
+
+The tests expect the app to load at the feeling step. This likely means your client side `/` route is the feeling step. Having a `Welcome` page into the mix will break the tests.
+
+Each step of the process needs to have the appropriate label. So if you are on the feeling step, the text of `feeling` must be on the page someplace. Same for all views: feeling, understanding, support, comments, review, thank you. This helps the tests know what step of the form we are on.
+
+
+## STRETCH GOALS
+
+> NOTE: These stretch goals are intended to be completed in order.
 
 ### Input Validation
 
@@ -42,24 +77,7 @@ Each step should only allow the user to advance to the next step if a score was 
 
 The `Comments` step does not need to be validated, an empty value is okay.
 
-## THE REVIEW COMPONENT
-
-The last step of the process will allow the user to review their feedback. Users are not able to change their input on this step or go back for Base Mode. 
-
-![comments](wireframes/review-active.png)
-
-## SUBMIT THE FEEDBACK
-
-The `Review` step needs to have a submit button which will be clicked on to actually submit the completed feedback to the server.
-
-When the submit button is clicked, save the submission in the database. The user should see a submission success page. They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
-
-![understanding](wireframes/page-five.png)
-
-
-## STRETCH GOALS
-
-> NOTE: These stretch goals are intended to be completed in order.
+>> This will likely break some of the tests! You need to fix them too.
 
 ### UPDATE SCORES
 
@@ -77,4 +95,4 @@ Improve the styling of the app using Material-UI. This might include cards, snac
 - Add the ability to flag an existing feedback entry for further review on the /admin view.
 
 ### DEPLOY
-Deploy your project to Heroku. You'll need to read the special instructions for building and deploying with React. 
+Deploy your project to Heroku. 

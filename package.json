@@ -2,7 +2,7 @@
   "name": "react-reflection-board",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:5001",
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
@@ -13,14 +13,17 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.5"
+    "cypress": "^13.3.1",
+    "nodemon": "^3.0.1",
+    "start-server-and-test": "^2.0.1"
   },
   "scripts": {
-    "start": "node server/server.js",
-    "build": "react-scripts build",
+    "start": "react-scripts build && node server/server.js",
     "client": "react-scripts start",
-    "server": "nodemon --watch server server/server.js",
-    "test": "react-scripts test --env=jsdom",
+    "server": "nodemon  --watch server server/server.js",
+    "start:test": "export NODE_ENV=test PORT=5002 && npm start",
+    "cypress:run": "cypress run --config-file cypress.config.js",
+    "test": "start-server-and-test start:test http://localhost:5002 cypress:run",
     "eject": "react-scripts eject"
   },
   "browserslist": [
