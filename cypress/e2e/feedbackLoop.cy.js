@@ -15,8 +15,18 @@ describe('Feedback Loop', () => {
         // Can use this to log the response.body to test output:
         // cy.task('log', JSON.stringify(response.body))
 
-        expect(response.body[0].comments).to.equal('Doing Great Woot!')
-        expect(response.body[1].comments).to.equal('Blerg.')
+        expect(response.body.length).to.equal(2);
+        const [response1, response2] = response.body
+
+        expect(response1.comments).to.equal('Doing Great Woot!');
+        expect(response1.feeling).to.equal(4);
+        expect(response1.understanding).to.equal(4);
+        expect(response1.support).to.equal(5);
+
+        expect(response2.comments).to.equal('Blerg.');
+        expect(response2.feeling).to.equal(1);
+        expect(response2.understanding).to.equal(2);
+        expect(response2.support).to.equal(3);
       })
   });
 
