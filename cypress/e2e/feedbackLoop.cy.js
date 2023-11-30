@@ -15,6 +15,7 @@ describe('Feedback Loop', () => {
         // Can use this to log the response.body to test output:
         // cy.task('log', JSON.stringify(response.body))
 
+
         expect(response.body.length).to.equal(2);
         const [response1, response2] = response.body
 
@@ -61,45 +62,42 @@ describe('Feedback Loop', () => {
     cy.contains('feeling').should('exist');
   })
 
-  // 🔥 This test doesn't work, but do we even need it if the next test works?
-  // it('UI: Data Collection Persists across views, sends Collected Data', async () => {
-  //   cy.intercept('POST', '/*').as('postRequest')
+  it('UI: Data Collection Persists across views',  () => {
 
-  //   //will cycle through the 6 views and check they are what we expect
-  //   // based on finding 'correct' text on that view
-  //   cy.contains('feeling').should('exist');
-  //   cy.get('[data-testid="input"]').type('5', {force: true})
-  //   cy.get('[data-testid="next"]').click();
+    //will cycle through the 6 views and check they are what we expect
+    // based on finding 'correct' text on that view
+    cy.contains('body', 'feeling').should('exist');
+    cy.get('[data-testid="input"]').type('5', {force: true})
+    cy.get('[data-testid="next"]').click();
 
-  //   cy.contains('understanding').should('exist');
-  //   cy.get('[data-testid="input"]').type('4', {force: true})
-  //   cy.get('[data-testid="next"]').click();
+    cy.contains('body','understanding').should('exist');
+    cy.get('[data-testid="input"]').type('4', {force: true})
+    cy.get('[data-testid="next"]').click();
 
-  //   cy.contains('support').should('exist');
-  //   cy.get('[data-testid="input"]').type('2', {force: true})
-  //   cy.get('[data-testid="next"]').click();
+    cy.contains('body','support').should('exist');
+    cy.get('[data-testid="input"]').type('2', {force: true})
+    cy.get('[data-testid="next"]').click();
 
-  //   cy.contains('comments').should('exist');
-  //   cy.get('[data-testid="input"]').type('Taco Cat Goat Cheese Pizza', {force: true})
-  //   cy.get('[data-testid="next"]').click();
-
-  //   cy.contains('review').should('exist');
+    cy.contains('body','comments').should('exist');
+    cy.get('[data-testid="input"]').type('Taco Cat Goat Cheese Pizza', {force: true})
+    cy.get('[data-testid="next"]').click();
 
 
-  //   cy.contains('Taco Cat Goat Cheese Pizza').should('exist');
-  //   cy.contains('5').should('exist')
-  //   cy.contains('4').should('exist')
-  //   cy.contains('2').should('exist')
-  //   cy.contains('3').should('not.exist')
-  //   cy.contains('1').should('not.exist')
+    // This makes sure that the data we collected is shown on the review page.
+    cy.contains('body','review').should('exist');
 
-  //   cy.wait('@postRequest').its('request.body').should('contain', 'Taco Cats Goat Cheese Pizza')
+    cy.contains('Taco Cat Goat Cheese Pizza').should('be.visible')
+    cy.contains('5').should('be.visible')
+    cy.contains('4').should('be.visible')
+    cy.contains('2').should('be.visible')
+    cy.contains('3').should('not.be.visible')
+    cy.contains('1').should('not.be.visible')
 
-  // })
+
+  })
 
 
 
-// THIS IS NOT ACTUALLY WORKING...? There are no assertions or expectations
   it('POST: Adds feedback to Database', () => {
     cy.contains('feeling').should('exist');
     cy.get('[data-testid="input"]').type('5', {force: true})
@@ -118,9 +116,10 @@ describe('Feedback Loop', () => {
     cy.get('[data-testid="next"]').click();
 
     cy.contains('review').should('exist');
-
-    cy.contains('Taco Cat Goat Cheese Pizza').should('exist');
     cy.get('[data-testid="next"]').click();
+    cy.contains('thank').should('exist');
+    cy.get('[data-testid="next"]').click();
+    // Go all the way through...incase they have an odd place for the POST?
 
     cy.request('GET', 'feedback')
         .then((response) => {
@@ -128,7 +127,15 @@ describe('Feedback Loop', () => {
           // cy.task('log', JSON.stringify(response.body))
 
           // This 👇 works, but should we test for other properties?
-          expect(response.body[2].comments).to.equal('Taco Cat Goat Cheese Pizza')
+          expect(response.body.length).to.equal(3);
+
+          const [ , , response3] = response.body
+
+          expect(response3.comments).to.equal('Taco Cat Goat Cheese Pizza')
+          expect(response3.feeling).to.equal(5)
+          expect(response3.understanding).to.equal(4)
+          expect(response3.support).to.equal(2)
+
         })
   })
 })
