@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
 // This route must return all feedback.
 router.get('/', (req, res) => {
     console.log('testing')
-    const sqlText = `SELECT * FROM "feedback"`;
+    const sqlText = `SELECT * FROM "feedback" ORDER BY "id"`;
     pool.query(sqlText).then(result => {
         res.send(result.rows)
     }).catch(err => {
