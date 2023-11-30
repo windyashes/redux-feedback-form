@@ -5,9 +5,17 @@ const fs = require('fs')
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
+      on('task', {
+        log(message) {
+          // Makes it so we can use this within tests to get visibility:
+          //   cy.task("log", "some thing to log...");
+          console.log(message +'\n\n');
+          return null;
+        },
+      })
       on('before:run', async (details) => {
         await resetTestDatabase()
-        await executeSqlFile('tests.sql')
+        await executeSqlFile('./tests.sql')
       })
       on('after:run', async (results) => {
         // results will look something like this when run via `cypress run`:
