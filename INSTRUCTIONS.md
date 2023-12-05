@@ -84,7 +84,8 @@ The `Comments` step does not need to be validated, an empty value is okay.
 Allow the user to go back to a previous step and change their score. You still need to disallow empty values!
 
 ### STYLING
-Improve the styling of the app using Material-UI. This might include cards, snackbars, buttons, a nav bar, icons, and/or a theme. 
+Improve the styling of the app using Material-UI. This might include cards, snackbars, buttons, a nav bar, icons, and/or a theme.
+>> If you change the inputs to use MUIs TextField component, you will need to do research here https://mui.com/material-ui/api/text-field/ in order to correctly use the `data-testid="input"` testing requirement.
 
 ### ADMIN SECTION
 
