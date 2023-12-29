@@ -1,5 +1,5 @@
 {
-  "name": "react-feedback-loop",
+  "name": "weekend-redux-feedback-loop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,9 +22,9 @@
     "vitest": "^1.1.0"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/server.js | vite",
     "client": "vite",
-    "server": "nodemon  --watch server server/server.js",
+    "server": "nodemon --watch server server/server.js",
     "start:test": "export NODE_ENV=test PORT=5002 &&  npm run build && npm start",
     "cypress:run": "cypress run --config-file cypress.config.js",
     "test": "start-server-and-test start:test http://localhost:5002 cypress:run",
