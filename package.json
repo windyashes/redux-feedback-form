@@ -1,8 +1,7 @@
 {
-  "name": "react-reflection-board",
+  "name": "weekend-redux-feedback-loop",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5001",
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
@@ -11,23 +10,25 @@
     "react-dom": "^18.2.0",
     "react-redux": "^7.2.9",
     "react-router-dom": "^5.3.4",
-    "react-scripts": "^5.0.1",
     "redux": "^4.2.1",
     "redux-logger": "^3.0.6"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
     "cypress": "^13.3.1",
     "nodemon": "^3.0.1",
-    "start-server-and-test": "^2.0.1"
+    "start-server-and-test": "^2.0.1",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts build && node server/server.js",
-    "client": "react-scripts start",
-    "server": "nodemon  --watch server server/server.js",
-    "start:test": "export NODE_ENV=test PORT=5002 && npm start",
+    "start": "node server/server.js",
+    "client": "vite",
+    "server": "nodemon --watch server server/server.js",
+    "start:test": "export NODE_ENV=test PORT=5002 && npm run build && npm start",
     "cypress:run": "cypress run --config-file cypress.config.js",
     "test": "start-server-and-test start:test http://localhost:5002 cypress:run",
-    "eject": "react-scripts eject"
+    "build": "vite build"
   },
   "browserslist": [
     ">0.2%",

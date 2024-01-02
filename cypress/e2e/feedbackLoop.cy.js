@@ -10,7 +10,7 @@ describe('Feedback Loop', () => {
 
   //This test is to ensure they have a GET route that returns data
   it('GET: Able to retrieve Data', () => {
-    cy.request('GET', 'feedback')
+    cy.request('GET', '/api/feedback')
       .then((response) => {
         // Can use this to log the response.body to test output:
         // cy.task('log', JSON.stringify(response.body))
@@ -36,7 +36,7 @@ describe('Feedback Loop', () => {
   it('UI: Correct order of views', () => {
     // Need to stub the response, here:
     //https://docs.cypress.io/api/commands/intercept#:~:text=%2C%0A%7D)-,//%20spying%20and%20response%20stubbing,-cy.intercept
-    cy.intercept('POST', '/*', {statusCode: 201})
+    cy.intercept('POST', '/api/*', {statusCode: 201})
 
     //will cycle through the 6 views and check they are what we expect
     // based on finding 'correct' text on that view
@@ -121,7 +121,7 @@ describe('Feedback Loop', () => {
     cy.get('[data-testid="next"]').click();
     // Go all the way through...incase they have an odd place for the POST?
 
-    cy.request('GET', 'feedback')
+    cy.request('GET', '/api/feedback')
         .then((response) => {
           // Can use this to log the response.body to test output:
           // cy.task('log', JSON.stringify(response.body))
