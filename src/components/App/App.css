@@ -1,23 +1,16 @@
 .App {
   text-align: center;
 }
-
-.App-header {
-  background-color: #033076;
-  min-height: 70px;
-  padding: 20px;
-  color: white;
-  margin-bottom: 20px;
+:root{
+  --primary: #30acb6 ;
+  --secondary: #2a2b36 ;
+  --tertiary: #201712 ;
+  --accent: #ed2d4e;
+  --base: white;
+  --text-base: black;
+  --text-contrast: white;
+  --font-1: 'Lucida Grande', monospace;
 }
-
-.App-title {
-  font-size: 2em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-h4 {
-  font-style: italic;
+#spacer{
+  min-height: 66vh;
 }
