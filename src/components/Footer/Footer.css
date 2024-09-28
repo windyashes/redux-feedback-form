@@ -1,5 +1,25 @@
 .footer {
-    background-color: var(--primary);
+    background-color: var(--secondary);
     min-height: 100px;
     width: 100vw;
+    padding: 20px ;
+    padding-bottom: 40px;
+}
+.footerHeader{
+    color: var(--text-contrast);
+    font-size: 14px;
+    font-family: arial;
+    margin: 2px;
+}
+.footerP {
+    margin-top: 0px;
+    margin-bottom: 1px;
+    color: var(--text-contrast);
+    font-size: 12px;
+    font-family: arial;
+    text-indent: 0px;
+    margin-left: 2px;
+}
+.icon-link {
+    margin: 3px;
 }

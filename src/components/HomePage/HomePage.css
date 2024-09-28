@@ -1,0 +1,61 @@
+#welcome {
+    background-color: var(--primary);
+opacity: 1;
+background-image:  radial-gradient(var(--secondary) 1.3px, transparent 1.3px), radial-gradient(var(--secondary) 1.3px, var(--primary) 1.3px);
+background-size: 52px 52px;
+background-position: 0 0,26px 26px;
+
+box-shadow: none;
+border-radius: 50px;
+font-family: var(--font-1);
+text-align: center;
+width: 500px;
+font-size: 30px;
+padding: 20px;
+text-shadow: 0px 0px 10px var(--secondary);
+}
+
+.card {
+    border-radius: 40px;
+    border: solid var(--secondary) 3px;
+    box-shadow: 0px 10px 20px var(--secondary);
+    overflow:hidden;
+    margin-bottom: 40px;
+}
+
+.card-header {
+    background-color: var(--tertiary);
+    color: var(--text-contrast);
+    font-family: var(--font-1);
+    /* border-top-left-radius: 40px;
+    border-top-right-radius: 40px; */
+    border-radius: 20px;
+    font-size: 24px;
+}
+
+#inner-card {
+    width:75%;
+    border-radius: 0px;
+    box-shadow: none;
+    border:none;
+}
+#inner-card-header{
+    background-color: var(--accent);
+    font-size: 18px;
+    text-shadow: -3px 3px 0px var(--secondary);
+    font-weight: bolder;
+}
+ul {
+    font-family: var(--font-1);
+    li:nth-child(even){
+        background-color: lightgrey;
+    }
+    li:nth-child(odd){
+        background-color: var(--base);
+    }
+}
+p{
+    text-indent: 40px;
+    font-size: 18px;
+    font-family: var(--font-1);
+}

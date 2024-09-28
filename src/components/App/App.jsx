@@ -2,6 +2,7 @@
 import Header from '../Header/Header';
 import HomePage from '../HomePage/HomePage';
 import Footer from '../Footer/Footer';
+import NextButton from '../NextButton/NextButton';
 // Dependencies
 import React from 'react';
 import axios from 'axios';
@@ -22,6 +23,7 @@ function App() {
       <div id="spacer">
         <Route path='/' exact>
           <HomePage />
+          <NextButton path={'/feeling'} text={'Start'}/>
         </Route>
         <Route path='/admin'>
 

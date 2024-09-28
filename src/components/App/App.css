@@ -1,12 +1,14 @@
 .App {
   text-align: center;
+  background-color: var(--base);
 }
 :root{
   --primary: #30acb6 ;
   --secondary: #2a2b36 ;
-  --tertiary: #201712 ;
+  --secondary-alpha: #2a2b3653 ;
+  --tertiary: #19698e ;
   --accent: #ed2d4e;
-  --base: white;
+  --base: #f6f6ea;
   --text-base: black;
   --text-contrast: white;
   --font-1: 'Lucida Grande', monospace;
