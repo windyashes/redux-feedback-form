@@ -1,0 +1,43 @@
+.understandingTitle{
+    text-indent: 40px ;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.rangeInput {
+    width:100%;
+}
+#unders-1 {
+    accent-color: red;
+}
+#unders-2 {
+    accent-color: #c96e00;
+}
+#unders-3 {
+    accent-color: grey;
+}
+#unders-4 {
+    accent-color: #537e30;
+}
+#unders-5 {
+    accent-color: blue;
+}
+.rangeLabel {
+    text-indent: 0px;
+    font-size: 12px;
+    width:100%
+}
+.highlight {
+    background-color: rgb(251, 251, 109);
+    padding:2px;
+}
+.understandingText {
+    margin: 80px;
+    text-indent: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.understandingBody{
+    background-image: url('public/images/understanding-reduced.jpg');
+    background-position: center;
+    background-size: cover;
+}

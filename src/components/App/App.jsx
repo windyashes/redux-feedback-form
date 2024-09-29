@@ -5,9 +5,9 @@ import Footer from '../Footer/Footer';
 import NextButton from '../NextButton/NextButton';
   // Question Components
   import Feeling from '../Questions/Feeling/Feeling';
-  import Understanding from '../Questions/Understanding';
-  import Support from '../Questions/Support';
-  import Comments from '../Questions/Comments';
+  import Understanding from '../Questions/Understanding/Understanding';
+  import Support from '../Questions/Support/Support';
+  import Comments from '../Questions/Comments/Comments';
 
 // Dependencies
 import React from 'react';

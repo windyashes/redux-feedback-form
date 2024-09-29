@@ -11,6 +11,8 @@ const feedbackReducer = (state = {
     if(action.type === 'SUBMIT'){
         if(action.payload.part === '1'){
             return {...state, feeling: action.payload.info}
+        } else if (action.payload.part === '2'){
+                return { ...state, understanding: action.payload.info}
         }
     }
 
