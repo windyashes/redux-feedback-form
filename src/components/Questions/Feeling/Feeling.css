@@ -1,0 +1,80 @@
+
+
+.feelingCard{
+  font-family: var(--font-1);
+    .feelingHeader{
+    font-size: 48px;
+    }
+    .feelingTitle{
+        /* text-align: center;
+        text-indent: 40px; */
+        margin: 10px;
+        margin-bottom: 0px;
+        font-size: 32px;
+        width: 90%
+    }
+    .feelingSubtitle{
+        text-align: end;
+        color: var(--secondary-alpha);
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-family: arial;
+    }
+    .feelingListLabel{
+        text-indent: 0px;
+        text-align: center;
+        background-color: var(--primary);
+        background-image:  radial-gradient(var(--secondary) 1.3px, transparent 1.3px), radial-gradient(var(--secondary) 1.3px, var(--primary) 1.3px);
+        background-size: 52px 52px;
+        background-position: 0 0,26px 26px; 
+        box-shadow: inset 0px -5px 0px var(--secondary);
+        color: var(--text-contrast);
+        border-radius: 40px;
+        padding:10px;
+        text-shadow: -2px 2px 0px var(--secondary);
+        font-weight: bold;
+    }
+
+    .feeling-form {
+        border: 1px solid var(--secondary);
+        background-color: var(--base);
+        height: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        .radio-thing{
+            height: 20%;
+            .radio-label {
+                color: var(--text);
+                display: inline;
+                font-size: 24px;
+            }
+            .radio-desc {
+                color: #3f4f60;
+                display: inline;
+                margin: 10px;
+                font-size: 16px;
+            }
+            .radio-input {
+                display: inline;
+                position: relative;
+                margin-right: 10px;
+            }
+            #radio-input-1{
+                accent-color: red;
+            }
+            #radio-input-2{
+                accent-color: rgb(201, 110, 0);
+            }
+            #radio-input-3{
+                accent-color: grey;
+            }
+            #radio-input-4{
+                accent-color: rgb(104, 151, 66);
+            }
+            #radio-input-5{
+                accent-color: blue;
+            }
+        }
+    }
+}

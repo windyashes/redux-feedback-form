@@ -53,6 +53,14 @@ ul {
     li:nth-child(odd){
         background-color: var(--base);
     }
+    li:hover{
+        background-color: var(--secondary-alpha);
+        /* color: var(--text-contrast); */
+    }
+    li{
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;   
+    }
 }
 p{
     text-indent: 40px;
