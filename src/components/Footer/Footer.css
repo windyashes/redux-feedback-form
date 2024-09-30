@@ -23,3 +23,9 @@
 .icon-link {
     margin: 3px;
 }
+.adminLink{
+    cursor: pointer;
+    text-decoration: underline;
+    color:var(--tertiary)
+}
+

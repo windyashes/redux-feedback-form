@@ -30,5 +30,25 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     })
 })
+router.delete('/:id', (req,res) => {
+    console.log('in DELETE')
+    const queryText = `DELETE FROM "feedback" WHERE "id"=$1;`
+    pool.query(queryText, [req.params.id]).then(response => {
+        res.status(204).send('Deleted Successfully.')
+    }).catch(err => {
+        console.error('Error deleting', err);
+    })
+})
+router.put('/:id', (req,res) => {
+    console.log('in PUT')
+    const queryText = `UPDATE "feedback"
+     SET "flagged"= NOT "flagged"
+     WHERE "id"=$1;`
+    pool.query(queryText, [req.params.id]).then(response => {
+        res.status(204).send('PUT Successfully.')
+    }).catch(err => {
+        console.error('Error putting', err);
+    })
+})
 
 module.exports = router;

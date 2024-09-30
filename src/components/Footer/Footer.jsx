@@ -1,6 +1,8 @@
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './Footer.css';
 import { Row, Col, Container } from 'react-bootstrap'
 function Footer(){
+  const history = useHistory();
     return(
         <div className="footer">
             <Container className='container-fluid'>
@@ -38,6 +40,7 @@ function Footer(){
                         {/* ;) */}
                         Not Trademark 2024™️
                     </h3>
+                    <p href='/admin' className='footerP adminLink' onClick={()=>{history.push('/admin')}}>login</p>
                     </Col>
                 </Row>
             </Container>

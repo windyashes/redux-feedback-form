@@ -1,5 +1,6 @@
 // Components
 import Header from '../Header/Header';
+import AdminPage from '../AdminPage/AdminPage';
 import HomePage from '../HomePage/HomePage';
 import Footer from '../Footer/Footer';
 import NextButton from '../NextButton/NextButton';
@@ -35,7 +36,7 @@ function App() {
           <NextButton path={'/feeling'} text={'Start'} dothing={() => {console.log('starting form')}}/>
         </Route>
         <Route path='/admin'>
-
+          <AdminPage />
         </Route>
         <Route path='/feeling'>
           <Feeling />
