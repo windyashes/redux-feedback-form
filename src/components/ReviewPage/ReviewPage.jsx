@@ -10,12 +10,7 @@ function ReviewPage(){
         axios({
             method: 'POST',
             url: '/api/feedback',
-            data: {
-                feeling: feedback.feeling,
-                understanding: feedback.understanding,
-                support: feedback.support,
-                comments: feedback.comments
-            }
+            data: feedback
         }).then(response => {
             dispatch({
                 type: undefined
