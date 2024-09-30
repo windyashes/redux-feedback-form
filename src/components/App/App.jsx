@@ -3,6 +3,8 @@ import Header from '../Header/Header';
 import HomePage from '../HomePage/HomePage';
 import Footer from '../Footer/Footer';
 import NextButton from '../NextButton/NextButton';
+import ReviewPage from '../ReviewPage/ReviewPage';
+import SuccessPage from '../SuccessPage/SuccessPage';
   // Question Components
   import Feeling from '../Questions/Feeling/Feeling';
   import Understanding from '../Questions/Understanding/Understanding';
@@ -17,7 +19,6 @@ import { HashRouter as Router, Route } from 'react-router-dom/cjs/react-router-d
 
 // Styles
 import './App.css';
-import ReviewPage from '../ReviewPage/ReviewPage';
 
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
           <ReviewPage />
         </Route>
         <Route path='/success'>
-
+          <SuccessPage />
         </Route>
       </div>
         <Route path='/'>
