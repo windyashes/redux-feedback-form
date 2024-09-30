@@ -21,7 +21,7 @@ function AdminPage(){
     },[]
     )
     function TableRow({item}){
-
+        
         return(
             <tr id={item.id} key={item.id}>
                 <td>{item.feeling}</td>
@@ -32,7 +32,19 @@ function AdminPage(){
             </tr>
         )
     }
-
+    const [logged, setLogged] = useState(false);
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    function handleSubmit(event){
+        event.preventDefault();
+        if(password === 'feedback1234'){
+            setLogged(true);
+            setUserName('');
+            setPassword('');
+        } else {
+            alert('Incorrect username and password.');
+        }
+    }
     function deleteFeedback(id){
         if(confirm('Are you sure you want to delete this from the database?')){
             axios.delete(`/api/feedback/${id}`).then(response => {
@@ -56,6 +68,7 @@ function AdminPage(){
 
     return(
         <Container>
+            {logged?
                 <Table id="adminTable">
                     <thead>
                         <tr>
@@ -72,6 +85,13 @@ function AdminPage(){
                     ))}
                     </tbody>
                 </Table>
+                :
+                <form onSubmit={handleSubmit}>
+                    <input placeholder='Admin Username' value={userName} onChange={(event) => {setUserName(event.target.value)}} required class='adminInput'/>
+                    <input placeholder="password" value={password} onChange={(event) => {setPassword(event.target.value)}} required type='password' class='adminInput'/>
+                    <button>Log in</button>
+                </form>
+            }   
         </Container>
     )
 }

@@ -14,3 +14,16 @@ tbody {
 .flagged{
     background-color: red;
 }
+.adminInput{
+    width: 40%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+button {
+    background-color: var(--primary);
+    color: var(--text-contrast);
+    text-shadow: -2px 2px 0px var(--secondary);
+    padding: 10px;
+    border-radius: 20px;
+}
