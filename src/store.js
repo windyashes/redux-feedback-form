@@ -12,7 +12,11 @@ const feedbackReducer = (state = {
         if(action.payload.part === '1'){
             return {...state, feeling: action.payload.info}
         } else if (action.payload.part === '2'){
-                return { ...state, understanding: action.payload.info}
+            return { ...state, understanding: action.payload.info}
+        } else if (action.payload.part === '3'){
+            return {...state, support: action.payload.info}
+        } else if (action.payload.part === '4'){
+            return {...state, comments: action.payload.info}
         }
     }
 

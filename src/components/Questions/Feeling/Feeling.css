@@ -4,6 +4,7 @@
   font-family: var(--font-1);
     .feelingHeader{
     font-size: 48px;
+    border-bottom: 4px solid var(--secondary);
     }
     .feelingTitle{
         /* text-align: center;
