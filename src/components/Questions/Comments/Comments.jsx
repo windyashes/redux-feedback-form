@@ -1,16 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardBody, CardFooter, CardHeader, CardSubtitle, CardText, CardTitle, Col, Container, Form, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NextButton from "../../NextButton/NextButton";
 import './Comments.css' ;
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Comments(){
     const [commentsValue, setCommentsValue] = useState('');
     const dispatch = useDispatch();
     function handleSubmit(){
-        if(!(commentsValue.length > 0)){
-            setCommentsValue('N/A')
-        }
         dispatch({
             type: 'SUBMIT',
             payload: {
@@ -19,7 +16,20 @@ function Comments(){
             }
         })
     }
-    
+    const history = useHistory();
+    const answers = useSelector(store => store.feedbackReducer);
+    function check(){
+        if(!answers.feeling){
+            history.push('/feeling')
+        } else if(!answers.understanding){
+            history.push('/understanding')
+        } else if(!answers.support){
+            history.push('/support')
+        }
+    }
+    useEffect(() => {
+        check()
+    }, [])
     return (
         <Container>
             <Card className="feelingCard">
@@ -37,7 +47,7 @@ function Comments(){
                             </CardSubtitle>
                         </Col>
                         <Col>
-                    <CardText className="commentsTextbox">
+                    
                         <Form className="commentsForm">
                             <textarea 
                                 placeholder="Type here..."
@@ -46,7 +56,7 @@ function Comments(){
                                 onChange={(event) => {setCommentsValue(event.target.value)}} 
                                 />
                         </Form>
-                    </CardText>
+
                         </Col>
                 </Row>
                 </CardBody>

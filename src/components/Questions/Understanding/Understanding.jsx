@@ -2,8 +2,9 @@ import { Row, Col, Card, Container, CardHeader, CardTitle, CardSubtitle, CardTex
 import { Form } from "react-bootstrap";
 import NextButton from "../../NextButton/NextButton";
 import './Understanding.css'
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Understanding(){
     const dispatch = useDispatch();
     const [understandingValue, setUnderstandingValue] = useState('3')
@@ -20,6 +21,16 @@ function Understanding(){
         })
     }
     
+    const history = useHistory();
+    const answers = useSelector(store => store.feedbackReducer);
+    function check(){
+        if(!answers.feeling){
+            history.push('/feeling')
+        }
+    }
+    useEffect(() => {
+        check()
+    }, [])
     return (
         <Container>
         <Card className="feelingCard">

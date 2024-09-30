@@ -13,11 +13,11 @@ import NextButton from '../NextButton/NextButton';
 import React from 'react';
 import axios from 'axios';
 import { HashRouter as Router, Route } from 'react-router-dom/cjs/react-router-dom.min';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useSelector } from 'react-redux';
+
 
 // Styles
 import './App.css';
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
           <Comments />
         </Route>
         <Route path='/review'>
-
+          <ReviewPage />
         </Route>
         <Route path='/success'>
 

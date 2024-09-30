@@ -1,7 +1,9 @@
 import { Container, Row, Col, Card, CardBody, CardHeader, CardFooter, CardText, CardTitle, Form, CardSubtitle, ListGroup, ListGroupItem, CardImg } from "react-bootstrap";
 import NextButton from "../../NextButton/NextButton";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 import './Support.css'
 function Support(){
     const dispatch = useDispatch();
@@ -20,6 +22,18 @@ function Support(){
             }
         })
     }
+    const history = useHistory();
+    const answers = useSelector(store => store.feedbackReducer);
+    function check(){
+        if(!answers.feeling){
+            history.push('/feeling')
+        } else if(!answers.understanding){
+            history.push('/understanding')
+        }
+    }
+    useEffect(() => {
+        check()
+    }, [])
     return (
         <Container>
         <Card className="feelingCard">
