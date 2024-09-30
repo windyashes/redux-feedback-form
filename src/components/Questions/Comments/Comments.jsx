@@ -5,7 +5,8 @@ import NextButton from "../../NextButton/NextButton";
 import './Comments.css' ;
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Comments(){
-    const [commentsValue, setCommentsValue] = useState('');
+    const answers = useSelector(store => store.feedbackReducer);
+    const [commentsValue, setCommentsValue] = useState(answers.comments || '');
     const dispatch = useDispatch();
     function handleSubmit(){
         dispatch({
@@ -17,7 +18,6 @@ function Comments(){
         })
     }
     const history = useHistory();
-    const answers = useSelector(store => store.feedbackReducer);
     function check(){
         if(!answers.feeling){
             history.push('/feeling')

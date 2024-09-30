@@ -6,8 +6,9 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Understanding(){
+    const answers = useSelector(store => store.feedbackReducer);
     const dispatch = useDispatch();
-    const [understandingValue, setUnderstandingValue] = useState('3')
+    const [understandingValue, setUnderstandingValue] = useState(answers.understanding || '3')
     function handleChange (event) {
         setUnderstandingValue(event.target.value)
     }
@@ -22,7 +23,6 @@ function Understanding(){
     }
     
     const history = useHistory();
-    const answers = useSelector(store => store.feedbackReducer);
     function check(){
         if(!answers.feeling){
             history.push('/feeling')

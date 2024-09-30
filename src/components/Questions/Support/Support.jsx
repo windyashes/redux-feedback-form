@@ -6,8 +6,9 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import './Support.css'
 function Support(){
+    const answers = useSelector(store => store.feedbackReducer);
     const dispatch = useDispatch();
-    const [supportLevel, setSupportLevel] = useState('3')
+    const [supportLevel, setSupportLevel] = useState( answers.support || '3' )
 
     function handleChange(event){
         setSupportLevel(event.target.value);
@@ -23,7 +24,6 @@ function Support(){
         })
     }
     const history = useHistory();
-    const answers = useSelector(store => store.feedbackReducer);
     function check(){
         if(!answers.feeling){
             history.push('/feeling')
@@ -79,7 +79,7 @@ function Support(){
                                 </p>
                                 <footer className="blockquote-footer">
                                     Institute of Technology in <cite title={`https://www.iot.edu/why-is-student-support-needed/#:~:text=Whether%20it's%20encouragement%20from%20teachers,contributes%20to%20overall%20personal%20development.`}>
-                                        Why is Student Support Needed?
+                                        <a href="https://www.iot.edu/why-is-student-support-needed/#:~:text=Whether%20it's%20encouragement%20from%20teachers,contributes%20to%20overall%20personal%20development.">Why is Student Support Needed?</a>
                                         </cite>
                                 </footer>
                             </blockquote>

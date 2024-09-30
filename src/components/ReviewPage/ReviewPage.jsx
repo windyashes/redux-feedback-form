@@ -33,9 +33,9 @@ function ReviewPage(){
             history.push('/support')
         }
     }
-    useEffect(() => {
+    // useEffect(() => {
         check()
-    }, [])
+    // }, [])
     return(
         <Container>
         <Card className="feelingCard">

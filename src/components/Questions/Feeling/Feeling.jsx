@@ -3,8 +3,9 @@ import { Form, ListGroup } from "react-bootstrap";
 import './Feeling.css'
 import { useState } from "react";
 import NextButton from '../../NextButton/NextButton';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 function Feeling(){
+    const answers = useSelector(store => store.feedbackReducer);
     const feelingAnswers = [
         {
             num: '1',
@@ -28,7 +29,7 @@ function Feeling(){
         }
     ]
     const dispatch = useDispatch();
-    const [selectedRadio, setSelectedRadio] = useState('3');
+    const [selectedRadio, setSelectedRadio] = useState(answers.feeling||'3');
     const handleChange = (event) => {
         setSelectedRadio(event.target.value)
     }
