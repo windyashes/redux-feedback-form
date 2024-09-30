@@ -10,8 +10,8 @@ function NextButton({ path, text, dothing}){
     }
     return(
         <div className="container-fluid" id="button-container">
-            <Row className="justify-content-end button-row">
-             <Button onClick={handleClick} id='nextButton'>
+            <Row className={text==='Go back and Change'?"justify-content-end button-row2":"justify-content-end button-row"}>
+             <Button onClick={handleClick} id={text==='Go back and Change'?'restartButton':'nextButton'}>
                 {text}
              </Button>    
             </Row>

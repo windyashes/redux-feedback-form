@@ -18,24 +18,17 @@ const feedbackReducer = (state = {
         } else if (action.payload.part === '4'){
             return {...state, comments: action.payload.info}
         }
+    } else if (action.type==='CLEAR'){
+      return {
+        feeling: null,
+        understanding: null,
+        support: null,
+        comments: null
+      }
     }
 
     return state;
 }
-
-function noSkip(){
-    if(!feedback.feeling){
-      history.push('/feeling');
-    } else if (!feedback.understanding){
-      history.push('/understanding')
-    } else if (!feedback.support){
-      history.push('/support')
-    } else if (!feedback.comments){
-      history.push('/comments')
-    }
-  }
-
-
 
 const store = createStore(
     combineReducers({

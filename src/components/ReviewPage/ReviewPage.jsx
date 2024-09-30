@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import './ReviewPage.css';
 import NextButton from "../NextButton/NextButton";
 import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useEffect } from "react";
 function ReviewPage(){
     const dispatch = useDispatch();
     const feedback = useSelector(store => store.feedbackReducer)
@@ -13,13 +15,27 @@ function ReviewPage(){
             data: feedback
         }).then(response => {
             dispatch({
-                type: undefined
+                type: 'CLEAR'
             });
             console.log('Successfully posted feedback and cleared feedback reducer.')
         }).catch(err => {
             console.error('Error posting data.',err)
         })
     }
+    const history = useHistory();
+    const answers = useSelector(store => store.feedbackReducer);
+    function check(){
+        if(!answers.feeling){
+            history.push('/feeling')
+        } else if(!answers.understanding){
+            history.push('/understanding')
+        } else if(!answers.support){
+            history.push('/support')
+        }
+    }
+    useEffect(() => {
+        check()
+    }, [])
     return(
         <Container>
         <Card className="feelingCard">
@@ -41,7 +57,7 @@ function ReviewPage(){
                         Support: {feedback.support}/5
                     </ListGroupItem>
                     <ListGroupItem>
-                        Comments: {feedback.comments.length > 0?`"${feedback.comments}"`:'N/A'}
+                        Comments: {feedback.comments?(feedback.comments.length > 0?`"${feedback.comments}"`:'N/A'):'N/A'}
                     </ListGroupItem>
                 </ListGroup>
 
@@ -50,6 +66,7 @@ function ReviewPage(){
 
             </CardFooter >
         </Card>
+        <NextButton text='Go back and Change' path='/feeling' dothing={()=>{console.log('going back to the beginning')}} className='restartButton'/>
         <NextButton text={'Submit'} path='/success' dothing={handleSubmit}/>
         </Container>
     )
